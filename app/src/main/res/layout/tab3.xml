@@ -6,11 +6,26 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="3"
         android:textColor="@android:color/black"
         android:textSize="80dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:id="@+id/threeTextView"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="16dp"
+        android:src="@drawable/bombanner"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tabbly5 v1.0 \nBuild Dat: 2-2-2020\nby Michael May\nBombadu "
+        android:textColor="@color/colorPrimaryDark"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>
