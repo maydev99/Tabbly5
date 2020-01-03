@@ -7,9 +7,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="3"
+        android:text="@string/_3"
         android:textColor="@android:color/black"
-        android:textSize="80dp"
+        android:textSize="80sp"
         android:gravity="center_horizontal"
         android:id="@+id/threeTextView"/>
 
@@ -17,12 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:padding="16dp"
-        android:src="@drawable/bombanner"/>
+        android:src="@drawable/bombanner"
+        android:contentDescription="@string/logo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tabbly5 v1.0 \nBuild Dat: 2-2-2020\nby Michael May\nBombadu "
+        android:text="@string/tabbly5_v1_0_nbuild_dat_2_2_2020_nby_michael_may_nbombadu"
         android:textColor="@color/colorPrimaryDark"
         android:gravity="center_horizontal"
         android:textSize="20sp"

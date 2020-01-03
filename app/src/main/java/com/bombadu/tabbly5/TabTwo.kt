@@ -1,8 +1,6 @@
 package com.bombadu.tabbly5
 
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +14,6 @@ import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
-import java.util.jar.Manifest
 
 class TabTwo : Fragment() {
 
@@ -50,36 +47,31 @@ class TabTwo : Fragment() {
             }
         }
 
-        getTheData()
+
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        getTheData()
     }
 
-
-    override fun onStart() {
-        super.onStart()
-        //getTheData() * Removed to RecView returns to the same location after leaving and returning to the app
-    }
 
     private fun getTheData() {
-        var newsApiKey = BuildConfig.NEWS_API_KEY
-        var title = ""
-        var description = ""
-        var imageUrls = ""
-        var webUrl = ""
-        var author = ""
+        val newsApiKey = BuildConfig.NEWS_API_KEY
+        var title: String
+        var description: String
+        var imageUrls: String
+        var webUrl: String
+        var author: String
 
 
-        var client = OkHttpClient()
+        val client = OkHttpClient()
         val url = "https://newsapi.org/v1/articles?source=engadget&apiKey=$newsApiKey"
         val request = Request.Builder().url(url).build()
         val call = client.newCall(request)
-        call?.enqueue(object : Callback {
+        call.enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 println("RESPONSE FAILED")
             }
