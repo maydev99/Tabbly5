@@ -16,12 +16,14 @@ import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
+import java.util.jar.Manifest
 
 class TabTwo : Fragment() {
 
 
     private var listData = mutableListOf<NewsData>()
     private var isTextColor = false
+
     //private var client: OkHttpClient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +50,8 @@ class TabTwo : Fragment() {
             }
         }
 
+        getTheData()
+
         return view
     }
 
@@ -59,10 +63,11 @@ class TabTwo : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        getTheData()
+        //getTheData() * Removed to RecView returns to the same location after leaving and returning to the app
     }
 
     private fun getTheData() {
+        var newsApiKey = BuildConfig.NEWS_API_KEY
         var title = ""
         var description = ""
         var imageUrls = ""
@@ -71,7 +76,7 @@ class TabTwo : Fragment() {
 
 
         var client = OkHttpClient()
-        val url = "https://newsapi.org/v1/articles?source=engadget&apiKey=6b9392d84b4b4f2983e2b3c9d8f2c090"
+        val url = "https://newsapi.org/v1/articles?source=engadget&apiKey=$newsApiKey"
         val request = Request.Builder().url(url).build()
         val call = client.newCall(request)
         call?.enqueue(object : Callback {
